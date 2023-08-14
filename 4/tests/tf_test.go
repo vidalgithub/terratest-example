@@ -36,8 +36,8 @@ func TestS3(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
+	// Check versioning
 	test_structure.RunTestStage(t, "test_versioning", func() {
-		//test_structure.SaveString(t, workingDir, "awsRegion", awsRegion)
 		bucketID := terraform.Output(t, terraformOptions, "bucket_id")
 		bucketVersionValidation(t, terraformOptions, awsRegion, bucketID)
 	})
@@ -73,7 +73,7 @@ func tagsValidation(t *testing.T, terraformOptions *terraform.Options) {
 		}
 	}
 
-	expectedTagsString := `{"Environment":"Dev","Name":"mytestbucket-08072023"}`
+	expectedTagsString := `{"Environment":"Dev","Name":"mytestbucket-08142023"}`
 
 	var expectedTags map[string]string
 	err := json.Unmarshal([]byte(expectedTagsString), &expectedTags)
