@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestS3BucketTags(t *testing.T) {
+func TestS3IsVersioned(t *testing.T) {
 	awsRegion := "eu-central-1"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
